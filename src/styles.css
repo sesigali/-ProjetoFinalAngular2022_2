@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body div{
+    background-size: cover;
+}
+h3{
+    background-color: white;
+    text-align: center;
+}
+div{
+    position: relative;
+    background: #11ffee00;
+    text-align: center;
+}
+header{
+    text-align: center;
+}
+#card-body{
+    background-color: white;
+}
