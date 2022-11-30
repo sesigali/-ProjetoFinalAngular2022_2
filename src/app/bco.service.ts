@@ -14,39 +14,39 @@ export class BcoService {
   constructor(private http: HttpClient) { }
 
   adicionarLivro(livroAdd:Livro):Observable<Livro>{
-    return this.http.post<Livro>("https://glitch.me/api/biblioteca?",{isbnLivro:livroAdd.isbnLivro,autorLivro:livroAdd.autorLivro,tituloLivro:livroAdd.tituloLivro,qtdExemplares:livroAdd.qtdExemplares});
+    return this.http.post<Livro>("https://bibliotecaprojetofinal.glitch.me/api/biblioteca?",{isbnLivro:livroAdd.isbnLivro,autorLivro:livroAdd.autorLivro,tituloLivro:livroAdd.tituloLivro,qtdExemplares:livroAdd.qtdExemplares});
   }
 
   adicionarUsuario(usuarioAdd:Usuario):Observable<Usuario>{
-    return this.http.post<Usuario>("https://glitch.me/api/biblioteca/user?",{cpf:usuarioAdd.cpf,nome:usuarioAdd.nome, email:usuarioAdd.email, telefone:usuarioAdd.telefone,qtdLivrosEmprestados:String(usuarioAdd.qtdLivrosEmprestados)});
+    return this.http.post<Usuario>("https://bibliotecaprojetofinal.glitch.me/api/biblioteca/user?",{cpf:usuarioAdd.cpf,nome:usuarioAdd.nome, email:usuarioAdd.email, telefone:usuarioAdd.telefone,qtdLivrosEmprestados:String(usuarioAdd.qtdLivrosEmprestados)});
   }
 
   editarLivro(editarLivro:Livro):Observable<Livro>{
-    return this.http.put<Livro>("https://glitch.me/api/biblioteca/"+editarLivro._id,{isbnLivro:editarLivro.isbnLivro,autorLivro:editarLivro.autorLivro,tituloLivro:editarLivro.tituloLivro,qtdExemplares:editarLivro.qtdExemplares});
+    return this.http.put<Livro>("https://bibliotecaprojetofinal.glitch.me/api/biblioteca/"+editarLivro._id,{isbnLivro:editarLivro.isbnLivro,autorLivro:editarLivro.autorLivro,tituloLivro:editarLivro.tituloLivro,qtdExemplares:editarLivro.qtdExemplares});
   }
   
   editarUsuario(editarUsuario:Usuario):Observable<Usuario>{
-    return this.http.put<Usuario>("https://glitch.me/api/biblioteca/user/"+editarUsuario._id,{cpf:editarUsuario.cpf,nome:editarUsuario.nome, email:editarUsuario.email, telefone:editarUsuario.telefone,qtdLivrosEmprestados:editarUsuario.qtdLivrosEmprestados});
+    return this.http.put<Usuario>("https://bibliotecaprojetofinal.glitch.me/api/biblioteca/user/"+editarUsuario._id,{cpf:editarUsuario.cpf,nome:editarUsuario.nome, email:editarUsuario.email, telefone:editarUsuario.telefone,qtdLivrosEmprestados:editarUsuario.qtdLivrosEmprestados});
   }
 
   obterLivros():Observable<Livro[]>{
-    return this.http.get<Livro[]>("https://glitch.me/api/biblioteca/").pipe(
+    return this.http.get<Livro[]>("https://bibliotecaprojetofinal.glitch.me/api/biblioteca/").pipe(
      map(res => {return res.map(this.converterLivros);
      }));
   }
 
   obterUsuarios():Observable<Usuario[]>{
-    return this.http.get<Usuario[]>("https://glitch.me/api/biblioteca/user").pipe(
+    return this.http.get<Usuario[]>("https://bibliotecaprojetofinal.glitch.me/api/biblioteca/user").pipe(
     map(res => {return res.map(this.converterUsuarios);
     }));
   }
 
   excluirLivro(id:string):Observable <Livro>{
-    return this.http.delete<Livro>("https://glitch.me/api/biblioteca/"+id)
+    return this.http.delete<Livro>("https://bibliotecaprojetofinal.glitch.me/api/biblioteca/"+id)
   }
 
   excluirUsuario(id:string):Observable <Usuario>{
-    return this.http.delete<Usuario>("https://glitch.me/api/biblioteca/user/"+id)
+    return this.http.delete<Usuario>("https://bibliotecaprojetofinal.glitch.me/api/biblioteca/user/"+id)
   }
 
   converterLivros(json_entrada:Livro):Livro{
